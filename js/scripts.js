@@ -1,6 +1,22 @@
 // business logic
+var sentenceLatin =[]
 
-var fakeWord = "e";
+
+function looper(sentence) {
+ var wordSplit = analyzer(sentence);
+ wordSplit.forEach(function(word) {
+   var test = pigLatinized(word);
+   sentenceLatin.push(test);
+ });
+ return sentenceLatin;
+}
+
+function analyzer(sentence) {
+  var wordSplit = sentence.split(" ");
+  return wordSplit
+}
+
+
 
 var pigLatinized = function latinizer(word) {
  if (word.length ===1) {
@@ -38,8 +54,8 @@ $(document).ready(function() {
   $("form#user").submit(function(event) {
     event.preventDefault();
 
-var word = $("input#entry").val();
-var result = pigLatinized(word);
+var sentence = $("input#entry").val();
+var result = looper(sentence);
    $(".outcome").text(result);
 });
 });
