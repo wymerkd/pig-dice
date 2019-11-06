@@ -1,44 +1,52 @@
-function TotalScore (rollScore) {
-  this.rollScore = [],
-  console.log(rollScore)
-}
+// function TotalScore (rollScore) {
+//   this.rollScore = [],
+//   console.log(rollScore)
+// }
 
-var score = [];
+var scorePlayer1 = [];
+var scorePlayer2 = [];
 
 
-var dice = {
+var dicePlayer1 = {
   roll: function() {
     var randomNumber =
     Math.floor(Math.random() * 6) + 1;
     if (randomNumber === 1) {
-      return score = [];
+      return scorePlayer1 = [];
     } else {
-    score.push(randomNumber)}
-    console.log(score)
+    scorePlayer1.push(randomNumber)}
+    console.log(scorePlayer1)
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    console.log(score.reduce(reducer));
+    console.log(scorePlayer1.reduce(reducer));
+  }
+};
+var dicePlayer2 = {
+  roll: function() {
+    var randomNumber =
+    Math.floor(Math.random() * 6) + 1;
+    if (randomNumber === 1) {
+      return scorePlayer2 = [];
+    } else {
+    scorePlayer2.push(randomNumber)}
+    console.log(scorePlayer2)
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    console.log(scorePlayer2.reduce(reducer));
   }
 };
 
 // "Sorry, your turn is over and you add 0 to your score"
 
 
-
-
-
-
-// rollScore.push(result)
-
-
-
-
-
-
 $(document).ready(function() {
-  var totalScore = new TotalScore();
-  var rollButton = document.getElementById('roll-button');
-  rollButton.onclick = function(){
-    var result = dice.roll();
+  // var totalScore = new TotalScore();
+  var rollButton1 = document.getElementById('roll-button-1');
+  rollButton1.onclick = function(){
+    var result = dicePlayer1.roll();
+    $("#current-roll").html(result);
+  }
+  var rollButton2 = document.getElementById('roll-button-2');
+  rollButton2.onclick = function(){
+    var result = dicePlayer2.roll();
     $("#current-roll").html(result);
   }
 });
