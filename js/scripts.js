@@ -38,6 +38,7 @@ var dicePlayer2 = {
     var randomNumber =
     Math.floor(Math.random() * 6) + 1;
     if (randomNumber === 1) {
+      console.log("Sorry, your turn is over and you add 0 to your score")
       return scorePlayer2 = [];
     } else {
     scorePlayer2.push(randomNumber)}
@@ -55,7 +56,6 @@ var dicePlayer2 = {
   }
 };
 
-// "Sorry, your turn is over and you add 0 to your score"
 
 
 $(document).ready(function() {
@@ -63,7 +63,7 @@ $(document).ready(function() {
   var rollButton1 = document.getElementById('roll-button-1');
   rollButton1.onclick = function(){
     var result1 = dicePlayer1.roll();
-    $("#score-player-1").html(scorePlayer1);
+    $("#score-player-1").html(scorePlayer1.toString());
     $("#current-roll1").html(scorePlayer1.reduce(reducer));
   }
   var rollButton2 = document.getElementById('roll-button-2');
