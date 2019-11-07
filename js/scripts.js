@@ -9,17 +9,28 @@ var totalPlayer1 = [];
 var totalPlayer2= [];
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue
+var test = [];
+
+
+
+
+
 
 var dicePlayer1 = {
   roll: function() {
     var randomNumber =
     Math.floor(Math.random() * 6) + 1;
     if (randomNumber === 1) {
-      return scorePlayer1 = [];
+      scorePlayer1.push(0);
+      console.log("you rolled a 1")
     } else {
-    scorePlayer1.push(randomNumber)}
+    scorePlayer1.push(randomNumber)
+    test.push(randomNumber);}
     console.log(scorePlayer1)
+    console.log(test)
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    var newTest = test.reduce(reducer);
+    console.log(newTest);
 
     holdPlayer1 = {
       hold: function() {
@@ -63,8 +74,9 @@ $(document).ready(function() {
   var rollButton1 = document.getElementById('roll-button-1');
   rollButton1.onclick = function(){
     var result1 = dicePlayer1.roll();
-    $("#score-player-1").html(scorePlayer1.toString());
-    $("#current-roll1").html(scorePlayer1.reduce(reducer));
+    $("#score-player-1").html(test.toString());
+    // $("#current-roll1").html(scorePlayer1.reduce(reducer));
+    $("#current-roll1").html(test.reduce(reducer));
   }
   var rollButton2 = document.getElementById('roll-button-2');
   rollButton2.onclick = function(){
@@ -76,11 +88,12 @@ $(document).ready(function() {
   holdButton1.onclick = function(){
     var hold1 = holdPlayer1.hold();
     $("#total-player-1").html(totalPlayer1.pop());
+    $("#score-player-1").html(test.length = 0);
+    $("#current-roll1").html(test.length = 0);
   }
   var holdButton2 = document.getElementById('hold-button-2');
   holdButton2.onclick = function(){
     var hold2 = holdPlayer2.hold();
-
     $("#total-player-2").html(totalPlayer2.pop());
   }
 });
