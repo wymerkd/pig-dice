@@ -18,57 +18,45 @@ var dicePlayer1 = {
   roll: function() {
     var randomNumber = Math.floor(Math.random() * 6) + 1;
     if (randomNumber === 1) {
-      scorePlayer1=[];
-      turnPlayer1.push(0);
+      scorePlayer1 = 0;
       console.log("you rolled a 1")
     } else {
       scorePlayer1.push(randomNumber)
       turnPlayer1.push(randomNumber);
-      console.log(scorePlayer1)
-      console.log(turnPlayer1)
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
       var newTurnPlayer1 = turnPlayer1.reduce(reducer);
-      console.log(newTurnPlayer1);
     }
   },
   hold: function() {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     var newReducer1 = scorePlayer1.reduce(reducer);
     totalPlayer1.push(newReducer1);
-    console.log(newReducer1);
-    console.log(totalPlayer1);
   }
 }
 
 
 var dicePlayer2 = {
   roll: function() {
-    var randomNumber =
-    Math.floor(Math.random() * 6) + 1;
+    var randomNumber = Math.floor(Math.random() * 6) + 1;
     scorePlayer2.push(randomNumber);
     if (scorePlayer2.includes(1)) {
       alert("Sorry, you don't get any points this turn")
       console.log("you rolled a 1")
     } else {
       turnPlayer2.push(randomNumber);
-      console.log(scorePlayer2)
-      console.log(turnPlayer2)
-      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      // const reducer = (accumulator, currentValue) => accumulator + currentValue;
       var newTurnPlayer2 = turnPlayer2.reduce(reducer);
-      console.log(newTurnPlayer2);
+      //
       }
     },
   hold: function () {
     if (scorePlayer2.includes(0)) {
       totalPlayer2 + 0;
-      console.log(totalPlayer2)
     }
 
     else {
       var newReducer2 = scorePlayer2.reduce(reducer);
       totalPlayer2.push(newReducer2);
-      console.log(newReducer2);
-      console.log(totalPlayer2);
     }
   }
 }
